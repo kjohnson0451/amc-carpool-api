@@ -1,8 +1,11 @@
-const Koa = require("koa")
-const app = new Koa()
+const express = require("express")
+const app = express()
+const port = 3000
 
-app.use(async (ctx) => {
-  ctx.body = "Hello World"
+app.get("/", (req, res) => {
+  res.send("Hello World!")
 })
 
-app.listen(3000)
+app.listen(port, () => {
+  console.log(`Example app listening on port ${port}`)
+})
