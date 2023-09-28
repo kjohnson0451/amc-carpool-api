@@ -3,7 +3,7 @@ module.exports = {
     node: true,
     es2024: true,
   },
-  extends: "eslint:recommended",
+  extends: ["eslint:recommended", "airbnb"],
   rules: {
     // enable additional rules
     indent: ["error", 2],
