@@ -13,6 +13,8 @@ module.exports = {
     // disable vars-on-top, and then disallow vars completely
     "vars-on-top": "off",
     "no-var": "error",
+    // Require { a , b }, instead of { a: a, b: b}
+    "object-shorthand": "error",
   },
   parserOptions: {
     ecmaVersion: 15,
