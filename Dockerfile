@@ -17,4 +17,7 @@ COPY . .
 EXPOSE 3000
 
 # Command to start your application
-CMD ["node", "src/server.js"]
+
+# If we're in development mode, use `nodemon`
+# If we're in production mode, just use regular `node`
+CMD ["sh", "-c", "if [ \"$NODE_ENV\" = \"development\" ]; then node_modules/.bin/nodemon src/server.js; else node src/server.js; fi"]
