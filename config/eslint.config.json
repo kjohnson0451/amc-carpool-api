@@ -11,7 +11,8 @@
     "semi": ["error", "never"],
     "vars-on-top": "off",
     "no-var": "error",
-    "object-shorthand": "error"
+    "object-shorthand": "error",
+    "import/extensions": "off"
   },
   "parserOptions": {
     "ecmaVersion": 2022,
