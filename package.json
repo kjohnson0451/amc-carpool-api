@@ -14,8 +14,8 @@
     "nodemon": "^3.0.1"
   },
   "scripts": {
-    "lint": "eslint .",
-    "lint:fix": "eslint . --fix",
+    "lint": "eslint --config config/eslint.config.json .",
+    "lint:fix": "eslint --config config/eslint.config.json . --fix",
     "babel-node": "babel-node --config-file=./config/babel.config.json --presets='@babel/preset-env' --ignore='foo|bar|baz'"
   },
   "husky": {
