@@ -20,4 +20,11 @@ EXPOSE 3000
 
 # If we're in development mode, use `nodemon`
 # If we're in production mode, just use regular `node`
-CMD ["sh", "-c", "if [ \"$NODE_ENV\" = \"development\" ]; then node_modules/.bin/nodemon src/server.js; else node src/server.js; fi"]
+CMD [\
+  "sh", "-c",\
+  "if [ \"$NODE_ENV\" = \"development\" ]; then\
+    node_modules/.bin/nodemon src/server.js;\
+  else\
+    node src/server.js;\
+  fi"\
+  ]
