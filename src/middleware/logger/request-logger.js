@@ -1,4 +1,4 @@
-import logger from "../../utils/logger/logger.js"
+import logger from "@utils/logger/logger.js"
 
 // requestLogger
 //

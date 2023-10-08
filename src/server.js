@@ -1,6 +1,6 @@
 import express from "express"
-import logger from "./utils/logger/logger.js"
-import requestLogger from "./middleware/logger/request-logger.js"
+import logger from "@utils/logger/logger.js"
+import requestLogger from "@middleware/logger/request-logger.js"
 
 const app = express()
 const port = 3000
