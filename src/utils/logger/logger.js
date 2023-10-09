@@ -8,29 +8,28 @@ const logger = winston.createLogger({
   level: "info",
   format: winston.format.json(),
   defaultMeta: { service: "user-service" },
-  transports: [
-    //
-    // - Write all logs with importance level of `error` or less to `error.log`
-    // - Write all logs with importance level of `info` or less to `combined.log`
-    //
+})
+
+//
+// If we're in development then log to the `console` with the format:
+// `${info.level}: ${info.message} JSON.stringify({ ...rest }) `
+//
+// If we're in production, then log to files
+//
+if (process.env.NODE_ENV === "development") {
+  logger.add(
+    new winston.transports.Console({
+      format: winston.format.simple(),
+    }),
+  )
+} else {
+  logger.add(
     new winston.transports.File({
       dirname,
       filename: "error.log",
       level: "error",
     }),
     new winston.transports.File({ dirname, filename: "combined.log" }),
-  ],
-})
-
-//
-// If we're not in production then log to the `console` with the format:
-// `${info.level}: ${info.message} JSON.stringify({ ...rest }) `
-//
-if (process.env.NODE_ENV !== "production") {
-  logger.add(
-    new winston.transports.Console({
-      format: winston.format.simple(),
-    }),
   )
 }
 
