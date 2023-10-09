@@ -16,7 +16,8 @@
   "scripts": {
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
-    "babel-node": "babel-node --ignore='foo|bar|baz'"
+    "babel-node": "babel-node --ignore='foo|bar|baz'",
+    "prepare": "husky install"
   },
   "dependencies": {
     "dotenv": "^16.3.1",
