@@ -12,7 +12,8 @@
     "vars-on-top": "off",
     "no-var": "error",
     "object-shorthand": "error",
-    "import/extensions": "off"
+    "import/extensions": "off",
+    "import/no-unresolved": "off"
   },
   "parserOptions": {
     "ecmaVersion": 2022,
