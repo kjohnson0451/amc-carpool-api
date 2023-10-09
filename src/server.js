@@ -1,4 +1,5 @@
 import express from "express"
+import "dotenv/config"
 import logger from "@utils/logger"
 import requestLogger from "@middleware/logger/request-logger"
 
