@@ -24,10 +24,10 @@ Trip.belongsToMany(Participant, {
   through: TripParticipant,
 })
 
-TripParticipant.hasOne(AddressLocation)
-AddressLocation.belongsTo(TripParticipant)
+AddressLocation.hasMany(TripParticipant)
+TripParticipant.belongsTo(AddressLocation)
 
-TripParticipant.hasOne(CoordinatesLocation)
-CoordinatesLocation.belongsTo(TripParticipant)
+CoordinatesLocation.hasMany(TripParticipant)
+TripParticipant.belongsTo(CoordinatesLocation)
 
 export default TripParticipant

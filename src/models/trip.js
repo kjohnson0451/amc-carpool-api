@@ -24,10 +24,10 @@ const Trip = db.define(
   },
 )
 
-Trip.hasOne(AddressLocation)
-AddressLocation.belongsTo(Trip)
+AddressLocation.hasMany(Trip)
+Trip.belongsTo(AddressLocation)
 
-Trip.hasOne(CoordinatesLocation)
-CoordinatesLocation.belongsTo(Trip)
+CoordinatesLocation.hasMany(Trip)
+Trip.belongsTo(CoordinatesLocation)
 
 export default Trip
