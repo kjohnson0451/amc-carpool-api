@@ -3,6 +3,7 @@ import { CarpoolSchema } from "@config/db_schemas"
 import { DataTypes } from "sequelize"
 import AddressLocation from "@models/address_location"
 import CoordinatesLocation from "@models/coordinates_location"
+import hasJustOneOfAddressOrCoordinates from "@utils/validators/has_just_one_of_address_or_coordinates"
 
 const modelName = "Trip"
 const schema = CarpoolSchema
@@ -21,6 +22,9 @@ const Trip = db.define(
   {
     schema,
     timestamps: false,
+    validate: {
+      hasJustOneOfAddressOrCoordinates,
+    },
   },
 )
 
