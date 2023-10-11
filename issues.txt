@@ -1,1 +1,2 @@
 - Root owned files. Sometimes, node_modules/.cache/@babel/register/.babel.7.23.0.development.json is root owned
+- babel-plugin-module-resolver is an archived repo
