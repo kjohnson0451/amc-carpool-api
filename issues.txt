@@ -1,3 +1,4 @@
 - Root owned files. Sometimes, node_modules/.cache/@babel/register/.babel.7.23.0.development.json is root owned
 - babel-plugin-module-resolver is an archived repo
 - ESLint won't reconcile with babel-plugin-module-resolver
+- After I use \copy, I can't normally insert into the database via sequelize
