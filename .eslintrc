@@ -3,7 +3,7 @@
     "node": true,
     "es2022": true
   },
-  "extends": ["eslint:recommended"],
+  "extends": ["eslint:recommended", "plugin:node/recommended"],
   "rules": {
     "indent": ["error", 2],
     "linebreak-style": ["error", "unix"],
@@ -12,7 +12,11 @@
     "vars-on-top": "off",
     "no-var": "error",
     "object-shorthand": "error",
-    "import/no-unresolved": "off"
+    // Disable the errors associated with import statements.
+    // ESLint is messing up here because of the troubles with
+    // Babel and import aliases
+    "node/no-unsupported-features/es-syntax": "off",
+    "node/no-missing-import": "off"
   },
   "parserOptions": {
     "ecmaVersion": 2022,
