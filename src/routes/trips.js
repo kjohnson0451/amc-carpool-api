@@ -1,7 +1,6 @@
 import express from "express"
+import getTrip from "@controllers/trips/get_trip"
 
 export const router = express.Router()
 
-router.get("/get-trip", (req, res) => {
-  res.send("Hello world!")
-})
+router.get("/get-trip", getTrip)
