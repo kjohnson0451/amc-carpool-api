@@ -1,6 +1,7 @@
 import Sequelize from "sequelize"
+import { PgUrl } from "@config/environment_variables"
 
-const db = new Sequelize(process.env.PG_URL, {
+const db = new Sequelize(PgUrl, {
   dialect: "postgres",
   dialectOptions: {
     ssl: {
