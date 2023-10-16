@@ -1,7 +1,5 @@
 import db from "@utils/db"
 import { CarpoolSchema } from "@config/db_schemas"
-import Participant from "@models/participant"
-import Trip from "@models/trip"
 import AddressLocation from "@models/address_location"
 import CoordinatesLocation from "@models/coordinates_location"
 import hasJustOneOfAddressOrCoordinates from "@utils/validators/has_just_one_of_address_or_coordinates"
@@ -20,13 +18,6 @@ const TripParticipant = db.define(
     },
   },
 )
-
-Participant.belongsToMany(Trip, {
-  through: TripParticipant,
-})
-Trip.belongsToMany(Participant, {
-  through: TripParticipant,
-})
 
 AddressLocation.hasMany(TripParticipant)
 TripParticipant.belongsTo(AddressLocation)
