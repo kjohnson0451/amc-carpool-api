@@ -3,8 +3,8 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
-    image: amc-carpool-data
-    container_name: amc_carpool_data
+    image: amc-carpool-api
+    container_name: amc_carpool_api
     ports:
       - "3000:3000"
     volumes:
