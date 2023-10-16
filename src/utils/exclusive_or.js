@@ -4,17 +4,16 @@
 const exclusiveOr = (...args) => {
   let trueCount = 0
 
-  args.forEach((arg) => {
+  for (const arg of args) {
     if (arg) {
-      trueCount += 1
+      trueCount++
       if (trueCount > 1) {
-        return // More than one true value found, exiting the loop
+        return false // More than one true value found
       }
     }
-    return // No more than one true value was found
-  })
+  }
 
-  return trueCount === 1 // Was only one value found?
+  return trueCount === 1 // Only one true value found
 }
 
 export default exclusiveOr
