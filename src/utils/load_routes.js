@@ -1,9 +1,10 @@
 import fs from "fs"
 import path from "path"
 
+const dirToLoadFilesFrom = "../routes"
+
 const loadRoutes = (server) => {
-  const routesDir = path.join(__dirname, "../routes")
-  console.log(routesDir)
+  const routesDir = path.join(__dirname, dirToLoadFilesFrom)
 
   fs.readdirSync(routesDir).forEach((file) => {
     const filePath = path.join(routesDir, file)
