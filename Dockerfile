@@ -25,6 +25,6 @@ CMD [\
   "if [ \"$NODE_ENV\" = \"development\" ]; then\
     npx nodemon --exec npm run babel-node -- src/server.js;\
   else\
-    node src/server.js;\
+    node dist/server.js;\
   fi"\
   ]
