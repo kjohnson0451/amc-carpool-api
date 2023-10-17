@@ -23,14 +23,15 @@ if (process.env.NODE_ENV === "development") {
     }),
   )
 } else {
-  logger.add(
-    new winston.transports.File({
-      dirname,
-      filename: "error.log",
-      level: "error",
-    }),
-    new winston.transports.File({ dirname, filename: "combined.log" }),
-  )
+  logger
+    .add(
+      new winston.transports.File({
+        dirname,
+        filename: "error.log",
+        level: "error",
+      }),
+    )
+    .add(new winston.transports.File({ dirname, filename: "combined.log" }))
 }
 
 export default logger
