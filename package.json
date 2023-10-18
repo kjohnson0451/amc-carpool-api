@@ -19,7 +19,8 @@
     "lint:fix": "eslint . --fix",
     "babel-node": "babel-node --ignore='foo|bar|baz'",
     "prepare": "husky install",
-    "build": "npx babel src -d dist"
+    "build": "npx babel src -d dist",
+    "start": "npx nodemon --exec npm run babel-node -- src/server.js"
   },
   "dependencies": {
     "dotenv": "^16.3.1",
