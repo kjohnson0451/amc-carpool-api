@@ -1,7 +1,0 @@
-services:
-  app-production:
-    extends:
-      file: compose.yml
-      service: app
-    environment:
-      NODE_ENV: production
