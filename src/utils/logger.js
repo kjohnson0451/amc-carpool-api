@@ -1,6 +1,7 @@
 // logger.js
 
 import winston from "winston"
+import { NodeEnv } from "@config/environment_variables"
 
 const dirname = "log"
 
@@ -16,7 +17,7 @@ const logger = winston.createLogger({
 //
 // If we're in production, then log to files
 //
-if (process.env.NODE_ENV === "development") {
+if (NodeEnv === "development") {
   logger.add(
     new winston.transports.Console({
       format: winston.format.simple(),
