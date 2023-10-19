@@ -6,6 +6,5 @@ WORKDIR /usr/src/app
 
 # Command to start your application
 
-# If we're in development mode, use `nodemon`
-# If we're in production mode, just use regular `node`
+# Since we're in development mode, use `nodemon` and `babel-node`
 CMD ["sh", "-c", "npx nodemon --exec npm run babel-node -- src/server.js" ]

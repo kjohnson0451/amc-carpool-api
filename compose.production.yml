@@ -1,7 +1,11 @@
 services:
-  app-production:
-    extends:
-      file: compose.yml
-      service: app
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile.production
+    image: amc-carpool-api-production
+    container_name: amc_carpool_api_production
+    ports:
+      - "3000:3000"
     environment:
       NODE_ENV: production
