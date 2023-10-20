@@ -1,6 +1,6 @@
 {
   "name": "amc-carpooling",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "Manage your carpooling plan for AMC trips",
   "devDependencies": {
     "@babel/cli": "^7.23.0",
