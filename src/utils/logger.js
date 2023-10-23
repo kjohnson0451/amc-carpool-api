@@ -1,6 +1,6 @@
 // logger.js
 import winston from "winston"
-import { isProdMode, isDevMode } from "@utils/node_env"
+import { isProdMode } from "@utils/node_env"
 
 const dirname = "log"
 
@@ -8,21 +8,14 @@ const logger = winston.createLogger({
   level: "info",
   format: winston.format.json(),
   defaultMeta: { service: "user-service" },
-})
-
-//
-// If we're in development then log to the `console` with the format:
-// `${info.level}: ${info.message} JSON.stringify({ ...rest }) `
-//
-// If we're in production, then log to files
-//
-if (isDevMode()) {
-  logger.add(
+  transports: [
     new winston.transports.Console({
       format: winston.format.simple(),
     }),
-  )
-}
+  ],
+})
+
+// If we're in production, then log to files
 if (isProdMode()) {
   logger
     .add(
