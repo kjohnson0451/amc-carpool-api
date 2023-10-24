@@ -15,7 +15,7 @@ loadMiddlewares(server)
 loadRoutes(server)
 loadAssociations()
 
-server.get("/", root)
+server.use("/", root)
 server.use(error404)
 
 server.listen(ServerPort, () => {
