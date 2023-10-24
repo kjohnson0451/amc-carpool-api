@@ -6,10 +6,13 @@ import loadRoutes from "@utils/load_routes"
 import loadAssociations from "@utils/load_associations"
 import root from "@controllers/root"
 import error404 from "@controllers/error_404"
+import faviconController from "@controllers/favicon_controller"
 import { MainConsoleMessage } from "@config/strings"
 import { ServerPort } from "@config/environment_variables"
 
 const server = express()
+
+server.get("/favicon.ico", faviconController)
 
 loadMiddlewares(server)
 loadRoutes(server)
