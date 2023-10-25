@@ -1,5 +1,5 @@
 import TripParticipant from "@models/trip_participant"
-import CoordinatesLocation from "@models/address_location"
+import CoordinatesLocation from "@models/coordinates_location"
 
 export const loadAssociation = () => {
   CoordinatesLocation.hasMany(TripParticipant)
