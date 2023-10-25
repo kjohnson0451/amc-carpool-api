@@ -8,12 +8,9 @@ const schema = CarpoolSchema
 const AddressLocation = db.define(
   modelName,
   {
-    street_address1: {
+    streetAddress: {
       type: DataTypes.STRING(255),
       allowNull: false,
-    },
-    street_address2: {
-      type: DataTypes.STRING(255),
     },
     city: {
       type: DataTypes.STRING(100),
@@ -23,7 +20,7 @@ const AddressLocation = db.define(
       type: DataTypes.STRING(50),
       allowNull: false,
     },
-    postal_code: {
+    postalCode: {
       type: DataTypes.STRING(20),
     },
     country: {
