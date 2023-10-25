@@ -12,6 +12,7 @@ const Trip = db.define(
     name: {
       type: DataTypes.STRING(255),
       allowNull: false,
+      unique: true,
     },
     date: {
       type: DataTypes.DATE,
