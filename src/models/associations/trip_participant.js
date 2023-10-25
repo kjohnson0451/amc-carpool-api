@@ -3,10 +3,9 @@ import Participant from "@models/participant"
 import TripParticipant from "@models/trip_participant"
 
 export const loadAssociation = () => {
-  Participant.belongsToMany(Trip, {
-    through: TripParticipant,
-  })
-  Trip.belongsToMany(Participant, {
-    through: TripParticipant,
-  })
+  Participant.hasMany(TripParticipant)
+  TripParticipant.belongsTo(Participant)
+
+  Trip.hasMany(TripParticipant)
+  TripParticipant.belongsTo(Trip)
 }
