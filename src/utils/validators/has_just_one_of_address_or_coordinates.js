@@ -1,7 +1,7 @@
 import exclusiveOr from "@utils/exclusive_or"
 
 const error = new Error(
-  "Must have ONLY one of address or coordinates (exclusive or). Not either, and not both!",
+  "Must have ONLY one of address or coordinates (exclusive or). Not neither, and not both!",
 )
 
 function hasJustOneOfAddressOrCoordinates() {
