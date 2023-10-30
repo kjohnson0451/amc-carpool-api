@@ -29,7 +29,6 @@ const AddressLocation = db.define(
   },
   {
     schema,
-    timestamps: false,
   },
 )
 

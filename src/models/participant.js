@@ -9,7 +9,6 @@ const Participant = db.define(
   {},
   {
     schema,
-    timestamps: false,
   },
 )
 

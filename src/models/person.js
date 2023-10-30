@@ -16,7 +16,6 @@ const Person = db.define(
   },
   {
     schema,
-    timestamps: false,
   },
 )
 

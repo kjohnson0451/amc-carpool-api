@@ -19,7 +19,6 @@ const CoordinatesLocation = db.define(
   },
   {
     schema,
-    timestamps: false,
   },
 )
 

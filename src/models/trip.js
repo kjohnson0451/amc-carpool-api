@@ -19,7 +19,6 @@ const Trip = db.define(
   },
   {
     schema,
-    timestamps: false,
   },
 )
 
