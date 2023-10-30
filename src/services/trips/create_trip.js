@@ -1,6 +1,6 @@
 import db from "@utils/db"
 import Trip from "@models/trip"
-import createParticipantForTrip from "@services/participants/create_participant_for_trip"
+import createParticipant from "@services/participants/create_participant"
 import findOrCreateAddress from "@services/addresses/find_or_create_address"
 
 const createTrip = async (tripData) => {
@@ -20,11 +20,8 @@ const createTrip = async (tripData) => {
     await trip.setAddressLocation(address, options)
 
     for (const participantData of participantsData) {
-      const tripParticipant = await createParticipantForTrip(
-        participantData,
-        options,
-      )
-      await trip.addTripParticipant(tripParticipant, options)
+      const participant = await createParticipant(participantData, options)
+      await trip.addParticipant(participant, options)
     }
 
     await transaction.commit()
