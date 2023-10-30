@@ -24,14 +24,14 @@ const getTripById = async (tripId) => {
             ],
           },
         ],
-        attributes: ["PersonId", "AddressLocationId"], // Retrieve 'name' attribute for Participant
+        attributes: ["PersonId", "AddressLocationId"],
       },
       {
         model: AddressLocation,
-        attributes: ["streetAddress", "city", "state", "postalCode", "country"], // Retrieve specific attributes for AddressLocation
+        attributes: ["streetAddress", "city", "state", "postalCode", "country"],
       },
     ],
-    attributes: ["id", "name"], // Retrieve 'name' attribute for Trip
+    attributes: ["id", "name"],
     rejectOnEmpty: true,
   })
   return trip
