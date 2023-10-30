@@ -31,7 +31,7 @@ const getTripById = async (tripId) => {
         attributes: ["streetAddress", "city", "state", "postalCode", "country"], // Retrieve specific attributes for AddressLocation
       },
     ],
-    attributes: ["name"], // Retrieve 'name' attribute for Trip
+    attributes: ["id", "name"], // Retrieve 'name' attribute for Trip
   })
   return trip
 }

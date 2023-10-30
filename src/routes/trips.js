@@ -4,5 +4,5 @@ import postTripController from "@controllers/trips/post_trip_controller"
 
 export const router = express.Router()
 
-router.get("/get-trip/:tripId", getTripController)
+router.get("/get-trip/:id", getTripController)
 router.post("/post-trip/", postTripController)
