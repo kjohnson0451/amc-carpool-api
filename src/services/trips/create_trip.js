@@ -1,7 +1,7 @@
 import db from "@utils/db"
 import Trip from "@models/trip"
 import createParticipant from "@services/participants/create_participant"
-import findOrCreateAddress from "@services/addresses/find_or_create_address"
+import findOrCreateAddressLocation from "@services/address_locations/find_or_create_address_location"
 
 const createTrip = async (tripData) => {
   const transaction = await db.transaction()
@@ -16,7 +16,7 @@ const createTrip = async (tripData) => {
     const tripAttributes = { name }
     const trip = await Trip.create(tripAttributes, options)
 
-    const address = await findOrCreateAddress(addressData, options)
+    const address = await findOrCreateAddressLocation(addressData, options)
     await trip.setAddressLocation(address, options)
 
     for (const participantData of participantsData) {

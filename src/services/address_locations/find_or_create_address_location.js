@@ -1,6 +1,6 @@
 import AddressLocation from "@models/address_location"
 
-const findOrCreateAddress = async (addressData, options = {}) => {
+const findOrCreateAddressLocation = async (addressData, options = {}) => {
   const [address] = await AddressLocation.findOrCreate({
     where: addressData,
     ...options,
@@ -9,4 +9,4 @@ const findOrCreateAddress = async (addressData, options = {}) => {
   return address
 }
 
-export default findOrCreateAddress
+export default findOrCreateAddressLocation
