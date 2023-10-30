@@ -1,6 +1,6 @@
 import { StatusCodes, ReasonPhrases } from "http-status-codes"
 import getTripById from "@services/trips/get_trip_by_id"
-import { getTripSuccessMessage } from "@config/strings"
+import { getTripSuccessMessage, getTripNotFoundMessage } from "@config/strings"
 
 const getTrip = async (req, res) => {
   try {
@@ -19,6 +19,7 @@ const getTrip = async (req, res) => {
     if (error.name === "SequelizeEmptyResultError") {
       const code = StatusCodes.NOT_FOUND
       const status = ReasonPhrases.NOT_FOUND
+      const errorMessage = getTripNotFoundMessage
 
       const data = { code, status, errorName, errorMessage }
       res.status(code).json(data)
