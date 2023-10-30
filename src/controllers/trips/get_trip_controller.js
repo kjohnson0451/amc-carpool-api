@@ -5,8 +5,8 @@ import { getTripSuccessMessage } from "@config/strings"
 const getTrip = async (req, res) => {
   try {
     const { id } = req.params
-    const code = StatusCodes.CREATED
-    const status = ReasonPhrases.CREATED
+    const code = StatusCodes.OK
+    const status = ReasonPhrases.OK
     const message = getTripSuccessMessage
 
     const trip = await getTripById(id)
