@@ -2,18 +2,36 @@ import Trip from "@models/trip"
 import Participant from "@models/participant"
 import Person from "@models/person"
 import AddressLocation from "@models/address_location"
-import CoordinatesLocation from "@models/coordinates_location"
 
 const getTripById = async (tripId) => {
   const trip = await Trip.findByPk(tripId, {
     include: [
       {
         model: Participant,
-        include: [Person, AddressLocation, CoordinatesLocation],
+        include: [
+          {
+            model: Person,
+            attributes: ["name"],
+          },
+          {
+            model: AddressLocation,
+            attributes: [
+              "streetAddress",
+              "city",
+              "state",
+              "postalCode",
+              "country",
+            ],
+          },
+        ],
+        attributes: ["PersonId", "AddressLocationId"], // Retrieve 'name' attribute for Participant
       },
-      AddressLocation,
-      CoordinatesLocation,
+      {
+        model: AddressLocation,
+        attributes: ["streetAddress", "city", "state", "postalCode", "country"], // Retrieve specific attributes for AddressLocation
+      },
     ],
+    attributes: ["name"], // Retrieve 'name' attribute for Trip
   })
   return trip
 }
