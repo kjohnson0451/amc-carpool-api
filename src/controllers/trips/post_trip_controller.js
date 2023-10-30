@@ -1,7 +1,7 @@
 import { StatusCodes, ReasonPhrases } from "http-status-codes"
 import createTrip from "@services/trips/create_trip"
 import getTripById from "@services/trips/get_trip_by_id"
-import { createTripSuccessMessage } from "@config/strings"
+import { CreateTripSuccessMessage } from "@config/strings"
 
 const postTripController = async (req, res) => {
   try {
@@ -10,7 +10,7 @@ const postTripController = async (req, res) => {
 
     const code = StatusCodes.CREATED
     const status = ReasonPhrases.CREATED
-    const message = createTripSuccessMessage
+    const message = CreateTripSuccessMessage
     const { id } = trip
 
     const returnedTripData = await getTripById(id)

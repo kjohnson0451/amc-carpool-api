@@ -5,6 +5,6 @@ export const Error404Message = "404 Endpoint not found."
 export const RootMessage =
   "Welcome to the root endpoint. This app is running fine."
 
-export const getTripSuccessMessage = "Successfully retrieved trip."
-export const getTripNotFoundMessage = "Trip not found."
-export const createTripSuccessMessage = "Successfully created trip."
+export const GetTripSuccessMessage = "Successfully retrieved trip."
+export const GetTripNotFoundMessage = "Trip not found."
+export const CreateTripSuccessMessage = "Successfully created trip."
