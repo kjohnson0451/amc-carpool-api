@@ -1,11 +1,12 @@
 import Participant from "@models/participant"
 
-const findOrCreateParticipant = async (participantName) => {
+const findOrCreateParticipant = async (participantData, options = {}) => {
   const [participant] = await Participant.findOrCreate({
-    where: { name: participantName },
+    where: participantData,
+    ...options,
   })
 
-  return participant.id
+  return participant
 }
 
 export default findOrCreateParticipant
