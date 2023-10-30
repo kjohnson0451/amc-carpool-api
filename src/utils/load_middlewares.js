@@ -1,4 +1,5 @@
 import helmet from "helmet"
+import bodyParser from "body-parser"
 import requestLogger from "@middleware/logger/request_logger"
 import { isProdMode } from "@utils/node_env"
 
@@ -7,6 +8,8 @@ import { isProdMode } from "@utils/node_env"
 const loadMiddlewares = (server) => {
   // Log every request made to the server
   server.use(requestLogger)
+
+  server.use(bodyParser.json())
 
   if (isProdMode()) {
     // Use the helmet package to send security related HTTP headers
