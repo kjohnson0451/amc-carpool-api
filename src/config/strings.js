@@ -7,6 +7,3 @@ export const RootMessage =
 
 export const getTripSuccessMessage = "Successfully retrieved trip."
 export const createTripSuccessMessage = "Successfully created trip."
-
-export const statusSuccess = "success"
-export const statusError = "error"
