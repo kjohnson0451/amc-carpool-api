@@ -32,6 +32,7 @@ const getTripById = async (tripId) => {
       },
     ],
     attributes: ["id", "name"], // Retrieve 'name' attribute for Trip
+    rejectOnEmpty: true,
   })
   return trip
 }

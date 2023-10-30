@@ -1,32 +1,39 @@
+import { StatusCodes, ReasonPhrases } from "http-status-codes"
 import createTrip from "@services/trips/create_trip"
 import getTripById from "@services/trips/get_trip_by_id"
-import {
-  createTripSuccessMessage,
-  statusSuccess,
-  statusError,
-} from "@config/strings"
+import { createTripSuccessMessage } from "@config/strings"
 
 const postTripController = async (req, res) => {
   try {
     const tripData = req.body
     const trip = await createTrip(tripData)
 
-    const status = statusSuccess
-    const code = 201
+    const code = StatusCodes.CREATED
+    const status = ReasonPhrases.CREATED
     const message = createTripSuccessMessage
     const { id } = trip
 
     const returnedTripData = await getTripById(id)
 
-    const data = { status, code, message, trip: returnedTripData }
+    const data = { code, status, message, trip: returnedTripData }
     res.status(code).json(data)
   } catch (error) {
-    const status = statusError
-    const code = 500
-    const { message } = error
+    const { name: errorName, message: errorMessage } = error
 
-    const data = { status, code, message }
-    res.status(code).json(data)
+    if (error.name === "SequelizeValidationError") {
+      const code = StatusCodes.BAD_REQUEST
+      const status = ReasonPhrases.BAD_REQUEST
+
+      const data = { code, status, errorName, errorMessage }
+      res.status(code).json(data)
+    } else {
+      const code = StatusCodes.INTERNAL_SERVER_ERROR
+      const status = ReasonPhrases.INTERNAL_SERVER_ERROR
+
+      const data = { code, status, errorName, errorMessage }
+
+      res.status(code).json(data)
+    }
   }
 }
 
