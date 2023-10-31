@@ -10,5 +10,8 @@ export const GetTripNotFoundMessage = "Trip not found."
 export const CreateTripSuccessMessage = "Successfully created trip."
 export const UpdateTripSuccessMessage = "Successfully updated trip."
 
+export const GetParticipantNotFoundMessage = "Participant not found."
 export const CreateParticipantSuccessMessage =
   "Successfully created participant."
+export const UpdateParticipantSuccessMessage =
+  "Successfully updated participant."
