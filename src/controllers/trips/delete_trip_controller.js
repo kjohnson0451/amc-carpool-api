@@ -2,7 +2,7 @@ import { StatusCodes, ReasonPhrases } from "http-status-codes"
 import deleteTripById from "@services/trips/delete_trip_by_id"
 import { GetTripNotFoundMessage } from "@config/strings"
 
-const deleteTrip = async (req, res) => {
+const deleteTripController = async (req, res) => {
   try {
     const { id } = req.params
     const code = StatusCodes.NO_CONTENT
@@ -31,4 +31,4 @@ const deleteTrip = async (req, res) => {
   }
 }
 
-export default deleteTrip
+export default deleteTripController

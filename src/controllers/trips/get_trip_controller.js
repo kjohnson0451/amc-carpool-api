@@ -2,7 +2,7 @@ import { StatusCodes, ReasonPhrases } from "http-status-codes"
 import getTripById from "@services/trips/get_trip_by_id"
 import { GetTripSuccessMessage, GetTripNotFoundMessage } from "@config/strings"
 
-const getTrip = async (req, res) => {
+const getTripController = async (req, res) => {
   try {
     const { id } = req.params
     const code = StatusCodes.OK
@@ -34,4 +34,4 @@ const getTrip = async (req, res) => {
   }
 }
 
-export default getTrip
+export default getTripController
