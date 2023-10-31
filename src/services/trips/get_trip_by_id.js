@@ -3,7 +3,7 @@ import Participant from "@models/participant"
 import Person from "@models/person"
 import AddressLocation from "@models/address_location"
 
-const getTripById = async (tripId) => {
+const getTripById = async (tripId, options = {}) => {
   const trip = await Trip.findByPk(tripId, {
     include: [
       {
@@ -24,7 +24,7 @@ const getTripById = async (tripId) => {
             ],
           },
         ],
-        attributes: ["PersonId", "AddressLocationId"],
+        attributes: ["id", "PersonId", "AddressLocationId"],
       },
       {
         model: AddressLocation,
@@ -33,6 +33,7 @@ const getTripById = async (tripId) => {
     ],
     attributes: ["id", "name"],
     rejectOnEmpty: true,
+    ...options,
   })
   return trip
 }
