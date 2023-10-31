@@ -1,5 +1,5 @@
 import { StatusCodes, ReasonPhrases } from "http-status-codes"
-import updateTrip from "@services/trips/update_trip"
+import updateTripById from "@services/trips/update_trip_by_id"
 import getTripById from "@services/trips/get_trip_by_id"
 import {
   UpdateTripSuccessMessage,
@@ -10,7 +10,7 @@ const updateTripController = async (req, res) => {
   try {
     const { id } = req.params
     const tripData = req.body
-    await updateTrip(id, tripData)
+    await updateTripById(id, tripData)
 
     const code = StatusCodes.OK
     const status = ReasonPhrases.OK
