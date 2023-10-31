@@ -2,7 +2,7 @@ import db from "@utils/db"
 import Trip from "@models/trip"
 import findOrCreateAddressLocation from "@services/address_locations/find_or_create_address_location"
 
-const updateTrip = async (tripId, tripData) => {
+const updateTripById = async (tripId, tripData) => {
   const transaction = await db.transaction()
   const options = { transaction }
 
@@ -29,4 +29,4 @@ const updateTrip = async (tripId, tripData) => {
   }
 }
 
-export default updateTrip
+export default updateTripById
