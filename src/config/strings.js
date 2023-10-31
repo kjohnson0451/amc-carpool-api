@@ -8,3 +8,4 @@ export const RootMessage =
 export const GetTripSuccessMessage = "Successfully retrieved trip."
 export const GetTripNotFoundMessage = "Trip not found."
 export const CreateTripSuccessMessage = "Successfully created trip."
+export const UpdateTripSuccessMessage = "Successfully updated trip."
