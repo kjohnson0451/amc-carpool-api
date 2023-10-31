@@ -1,23 +1,29 @@
+import db from "@utils/db"
 import Participant from "@models/participant"
 import findOrCreateAddressLocation from "@services/address_locations/find_or_create_address_location"
 
-const updateParticipantById = async (
-  participantId,
-  participantData,
-  options = {},
-) => {
-  const existingParticipant = await Participant.findByPk(participantId, {
-    rejectOnEmpty: true,
-    ...options,
-  })
+const updateParticipantById = async (participantId, participantData) => {
+  const transaction = await db.transaction()
+  const options = { transaction }
 
-  const { address: addressData } = participantData
+  try {
+    const existingParticipant = await Participant.findByPk(participantId, {
+      rejectOnEmpty: true,
+      ...options,
+    })
 
-  const address = await findOrCreateAddressLocation(addressData, options)
+    const { address: addressData } = participantData
 
-  await existingParticipant.setAddressLocation(address, options)
+    const address = await findOrCreateAddressLocation(addressData, options)
 
-  return existingParticipant
+    await existingParticipant.setAddressLocation(address, options)
+
+    await transaction.commit()
+    return existingParticipant
+  } catch (error) {
+    await transaction.rollback()
+    throw error
+  }
 }
 
 export default updateParticipantById
