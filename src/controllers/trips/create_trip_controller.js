@@ -3,7 +3,7 @@ import createTrip from "@services/trips/create_trip"
 import getTripById from "@services/trips/get_trip_by_id"
 import { CreateTripSuccessMessage } from "@config/strings"
 
-const postTripController = async (req, res) => {
+const createTripController = async (req, res) => {
   try {
     const tripData = req.body
     const trip = await createTrip(tripData)
@@ -37,4 +37,4 @@ const postTripController = async (req, res) => {
   }
 }
 
-export default postTripController
+export default createTripController
