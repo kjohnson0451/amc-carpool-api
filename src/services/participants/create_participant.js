@@ -2,8 +2,8 @@ import Participant from "@models/participant"
 import findOrCreatePerson from "@services/people/find_or_create_person"
 import findOrCreateAddressLocation from "@services/address_locations/find_or_create_address_location"
 
-const createParticipant = async (personData, options = {}) => {
-  const { name, address: addressData } = personData
+const createParticipant = async (participantData, options = {}) => {
+  const { name, address: addressData } = participantData
   const participant = await Participant.create({}, options)
 
   const personAttributes = { name }
