@@ -2,8 +2,8 @@ import Participant from "@models/participant"
 import Person from "@models/person"
 import AddressLocation from "@models/address_location"
 
-const getParticipantById = async (tripId) => {
-  const participant = await Participant.findByPk(tripId, {
+const getParticipantById = async (participantId, options = {}) => {
+  const participant = await Participant.findByPk(participantId, {
     include: [
       {
         model: Person,
@@ -14,8 +14,9 @@ const getParticipantById = async (tripId) => {
         attributes: ["streetAddress", "city", "state", "postalCode", "country"],
       },
     ],
-    attributes: ["PersonId", "AddressLocationId"],
+    attributes: ["id", "PersonId", "AddressLocationId"],
     rejectOnEmpty: true,
+    ...options,
   })
   return participant
 }
