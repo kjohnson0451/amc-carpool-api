@@ -6,7 +6,7 @@ import logger from "@utils/logger"
 const requestLogger = (req, res, next) => {
   const { method, url } = req
 
-  logger.info(`Request URL: ${url}, Method: ${method}`)
+  logger.info("Request:", { method, url })
 
   next()
 }

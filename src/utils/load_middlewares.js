@@ -1,6 +1,7 @@
 import helmet from "helmet"
 import bodyParser from "body-parser"
 import requestLogger from "@middleware/logger/request_logger"
+import responseLogger from "@middleware/logger/response_logger"
 import { isProdMode } from "@utils/node_env"
 
 // I might want to change this into a loop that iterates
@@ -8,6 +9,7 @@ import { isProdMode } from "@utils/node_env"
 const loadMiddlewares = (server) => {
   // Log every request made to the server
   server.use(requestLogger)
+  server.use(responseLogger)
 
   server.use(bodyParser.json())
 
