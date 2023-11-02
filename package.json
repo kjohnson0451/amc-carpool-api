@@ -18,7 +18,7 @@
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
     "babel-node": "babel-node --ignore='foo|bar|baz'",
-    "prepare": "if [ \"$NODE_ENV\" = \"development\" ]; then husky install; fi",
+    "prepare": "husky install",
     "build": "npx babel src -d dist"
   },
   "dependencies": {
