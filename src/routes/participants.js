@@ -5,9 +5,6 @@ import deleteParticipantController from "@controllers/participants/delete_partic
 
 export const router = express.Router()
 
-router.post(
-  "/create-participant-and-add-to-trip/:tripId",
-  createParticipantAndAddToTripController,
-)
-router.patch("/update-participant/:id", updateParticipantController)
-router.delete("/delete-participant/:id", deleteParticipantController)
+router.post("/:tripId", createParticipantAndAddToTripController)
+router.patch("/:id", updateParticipantController)
+router.delete("/:id", deleteParticipantController)

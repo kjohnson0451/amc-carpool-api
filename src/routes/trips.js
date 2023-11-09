@@ -7,8 +7,8 @@ import deleteTripController from "@controllers/trips/delete_trip_controller"
 
 export const router = express.Router()
 
-router.get("/get-trip/:id", getTripController)
-router.get("/get-trips", getTripsController)
-router.post("/create-trip/", createTripController)
-router.patch("/update-trip/:id", updateTripController)
-router.delete("/delete-trip/:id", deleteTripController)
+router.get("/:id", getTripController)
+router.get("/", getTripsController)
+router.post("/", createTripController)
+router.patch("/:id", updateTripController)
+router.delete("/:id", deleteTripController)
