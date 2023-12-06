@@ -1,6 +1,5 @@
 import db from "@utils/db"
 import Trip from "@models/trip"
-import findOrCreateAddressLocation from "@services/address_locations/find_or_create_address_location"
 
 const updateTripById = async (tripId, tripData) => {
   const transaction = await db.transaction()
@@ -11,15 +10,7 @@ const updateTripById = async (tripId, tripData) => {
       rejectOnEmpty: true,
       ...options,
     })
-
-    const { name, address: addressData } = tripData
-
-    const tripAttributes = { name }
-
-    await existingTrip.update(tripAttributes, options)
-
-    const address = await findOrCreateAddressLocation(addressData, options)
-    await existingTrip.setAddressLocation(address, options)
+    await existingTrip.update(tripData, options)
 
     await transaction.commit()
   } catch (error) {

@@ -14,6 +14,21 @@ const Participant = db.define(
       type: DataTypes.STRING(255),
       allowNull: false,
     },
+    status: {
+      type: DataTypes.ENUM("D", "N"),
+    },
+    departureTime: {
+      type: DataTypes.DATE,
+    },
+    departureLocation: {
+      type: DataTypes.STRING(255),
+    },
+    email: {
+      type: DataTypes.STRING(255),
+    },
+    phone: {
+      type: DataTypes.STRING(255),
+    },
   },
   {
     schema,

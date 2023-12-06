@@ -15,6 +15,9 @@ const Trip = db.define(
     date: {
       type: DataTypes.DATE,
     },
+    trailhead: {
+      type: DataTypes.STRING(255),
+    },
   },
   {
     schema,
