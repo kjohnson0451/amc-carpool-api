@@ -1,14 +1,10 @@
 import Trip from "@models/trip"
 import Participant from "@models/participant"
-import Person from "@models/person"
-import AddressLocation from "@models/address_location"
-import CoordinatesLocation from "@models/coordinates_location"
+import CarpoolGroup from "@models/carpool_group"
 
 const syncDb = async () => {
-  await AddressLocation.sync()
-  await CoordinatesLocation.sync()
   await Trip.sync()
-  await Person.sync()
+  await CarpoolGroup.sync()
   await Participant.sync()
 }
 
