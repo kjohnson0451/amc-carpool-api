@@ -1,6 +1,5 @@
 import { StatusCodes, ReasonPhrases } from "http-status-codes"
 import createTrip from "@services/trips/create_trip"
-import getTripById from "@services/trips/get_trip_by_id"
 import { CreateTripSuccessMessage } from "@config/strings"
 
 const createTripController = async (req, res) => {
@@ -13,9 +12,7 @@ const createTripController = async (req, res) => {
     const message = CreateTripSuccessMessage
     const { id } = trip
 
-    const returnedTripData = await getTripById(id)
-
-    const data = { code, status, message, trip: returnedTripData }
+    const data = { code, status, message, trip: { id } }
     res.status(code).json(data)
   } catch (error) {
     const { name: errorName, message: errorMessage } = error

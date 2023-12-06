@@ -1,6 +1,5 @@
 import { StatusCodes, ReasonPhrases } from "http-status-codes"
 import createParticipantAndAddToTripById from "@services/participants/create_participant_and_add_to_trip_by_id"
-import getParticipantById from "@services/participants/get_participant_by_id"
 import {
   CreateParticipantSuccessMessage,
   GetTripNotFoundMessage,
@@ -18,11 +17,9 @@ const createParticipantAndAddToTripController = async (req, res) => {
     const code = StatusCodes.CREATED
     const status = ReasonPhrases.CREATED
     const message = CreateParticipantSuccessMessage
-    const { id: participantId } = participant
+    const { id } = participant
 
-    const returnedParticipantData = await getParticipantById(participantId)
-
-    const data = { code, status, message, participant: returnedParticipantData }
+    const data = { code, status, message, participant: { id } }
     res.status(code).json(data)
   } catch (error) {
     const { name: errorName, message: errorMessage } = error
