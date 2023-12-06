@@ -18,8 +18,9 @@ const createParticipantAndAddToTripController = async (req, res) => {
     const status = ReasonPhrases.CREATED
     const message = CreateParticipantSuccessMessage
     const { id } = participant
+    const newParticipantData = { id }
 
-    const data = { code, status, message, participant: { id } }
+    const data = { code, status, message, participant: newParticipantData }
     res.status(code).json(data)
   } catch (error) {
     const { name: errorName, message: errorMessage } = error
