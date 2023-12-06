@@ -16,3 +16,7 @@ export const CreateParticipantSuccessMessage =
   "Successfully created participant."
 export const UpdateParticipantSuccessMessage =
   "Successfully updated participant."
+
+export const GetCarpoolGroupNotFoundMessage = "Carpool group not found."
+export const CreateCarpoolGroupSuccessMessage =
+  "Successfully created carpool group."
