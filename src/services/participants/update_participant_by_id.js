@@ -19,7 +19,6 @@ const updateParticipantById = async (participantId, participantData) => {
     await existingParticipant.setAddressLocation(address, options)
 
     await transaction.commit()
-    return existingParticipant
   } catch (error) {
     await transaction.rollback()
     throw error

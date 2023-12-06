@@ -22,7 +22,6 @@ const updateTripById = async (tripId, tripData) => {
     await existingTrip.setAddressLocation(address, options)
 
     await transaction.commit()
-    return existingTrip
   } catch (error) {
     await transaction.rollback()
     throw error
