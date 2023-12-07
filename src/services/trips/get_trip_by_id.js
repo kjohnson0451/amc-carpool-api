@@ -1,5 +1,6 @@
 import Trip from "@models/trip"
 import Participant from "@models/participant"
+import CarpoolGroup from "@models/carpool_group"
 
 const getTripById = async (tripId, options = {}) => {
   try {
@@ -8,12 +9,31 @@ const getTripById = async (tripId, options = {}) => {
         {
           model: Participant,
           attributes: [
+            "id",
             "name",
             "status",
             "departureTime",
             "departureLocation",
             "email",
             "phone",
+          ],
+        },
+        {
+          model: CarpoolGroup,
+          attributes: ["id"],
+          include: [
+            {
+              model: Participant,
+              attributes: [
+                "id",
+                "name",
+                "status",
+                "departureTime",
+                "departureLocation",
+                "email",
+                "phone",
+              ],
+            },
           ],
         },
       ],
