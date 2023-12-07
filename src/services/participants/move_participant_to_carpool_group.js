@@ -12,6 +12,7 @@ const moveParticipantToCarpoolGroup = async (participantId, carpoolGroupId) => {
       options,
     )
 
+    await participant.setTrip(null, options)
     await participant.setCarpoolGroup(carpoolGroupDestination, options)
 
     await transaction.commit()

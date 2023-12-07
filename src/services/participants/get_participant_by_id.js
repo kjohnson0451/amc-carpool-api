@@ -11,6 +11,7 @@ const getParticipantById = async (participantId, options = {}) => {
         "departureLocation",
         "email",
         "phone",
+        "CarpoolGroupId",
       ],
       rejectOnEmpty: true,
       ...options,
