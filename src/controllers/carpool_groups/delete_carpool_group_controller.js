@@ -13,7 +13,7 @@ const deleteCarpoolGroupController = async (req, res) => {
   } catch (error) {
     const { name: errorName, message: errorMessage } = error
 
-    if (error.name === "SequelizeEmptyResultError") {
+    if (error.name === "CarpoolGroupNotFoundError") {
       const code = StatusCodes.NOT_FOUND
       const status = ReasonPhrases.NOT_FOUND
       const errorMessage = GetCarpoolGroupNotFoundMessage

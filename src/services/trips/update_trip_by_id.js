@@ -15,6 +15,9 @@ const updateTripById = async (tripId, tripData) => {
     await transaction.commit()
   } catch (error) {
     await transaction.rollback()
+    if (error.name === "SequelizeEmptyResultError") {
+      error.name = "TripNotFoundError"
+    }
     throw error
   }
 }

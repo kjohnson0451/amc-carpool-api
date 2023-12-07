@@ -21,7 +21,7 @@ const createCarpoolGroupAndAddToTripController = async (req, res) => {
   } catch (error) {
     const { name: errorName, message: errorMessage } = error
 
-    if (error.name === "SequelizeEmptyResultError") {
+    if (error.name === "TripNotFoundError") {
       const code = StatusCodes.NOT_FOUND
       const status = ReasonPhrases.NOT_FOUND
       const errorMessage = GetTripNotFoundMessage

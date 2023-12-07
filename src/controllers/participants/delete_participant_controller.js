@@ -13,7 +13,7 @@ const deleteParticipantController = async (req, res) => {
   } catch (error) {
     const { name: errorName, message: errorMessage } = error
 
-    if (error.name === "SequelizeEmptyResultError") {
+    if (error.name === "ParticipantNotFoundError") {
       const code = StatusCodes.NOT_FOUND
       const status = ReasonPhrases.NOT_FOUND
       const errorMessage = GetParticipantNotFoundMessage
