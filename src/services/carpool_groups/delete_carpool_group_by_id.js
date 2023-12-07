@@ -7,6 +7,17 @@ const deleteCarpoolGroupById = async (carpoolGroupId) => {
 
   try {
     const carpoolGroup = await getCarpoolGroupById(carpoolGroupId, options)
+    const participants = await carpoolGroup.getParticipants(options)
+
+    // If a bunch of participants have been placed into this carpool group
+    // we don't want to delete them. Move them up into the carpool group's trip.
+    if (participants.length > 0) {
+      const trip = await carpoolGroup.getTrip(options)
+      for (const participant of participants) {
+        await participant.setCarpoolGroup(null, options)
+        await participant.setTrip(trip, options)
+      }
+    }
 
     await carpoolGroup.destroy(options)
 
