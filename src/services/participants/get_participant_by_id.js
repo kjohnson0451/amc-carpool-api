@@ -3,16 +3,7 @@ import Participant from "@models/participant"
 const getParticipantById = async (participantId, options = {}) => {
   try {
     const participant = await Participant.findByPk(participantId, {
-      attributes: [
-        "id",
-        "name",
-        "status",
-        "departureTime",
-        "departureLocation",
-        "email",
-        "phone",
-        "CarpoolGroupId",
-      ],
+      attributes: ["id", "CarpoolGroupId"],
       rejectOnEmpty: true,
       ...options,
     })
