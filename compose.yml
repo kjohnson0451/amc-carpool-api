@@ -11,3 +11,18 @@ services:
       - .:/usr/src/app
     environment:
       NODE_ENV: development
+
+  local_db:
+    image: postgres:latest
+    container_name: local_postgres
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_DB: localdb
+      POSTGRES_USER: localdb
+      POSTGRES_PASSWORD: localdb
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+volumes:
+  postgres_data:
