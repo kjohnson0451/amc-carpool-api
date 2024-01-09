@@ -8,7 +8,7 @@ const loadCors = (server) => {
     methods: "GET,POST,PATCH,DELETE",
     allowedHeaders: "Content-Type,Authorization",
   }
-  const corsOptions = isDevMode ? {} : prodCorsOptions
+  const corsOptions = isDevMode() ? {} : prodCorsOptions
   server.use(cors(corsOptions))
 }
 
