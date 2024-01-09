@@ -6,7 +6,6 @@ WORKDIR /usr/src/app
 
 # Copy all the necessary files to run on production
 COPY package*.json ./
-COPY .env ./
 COPY node_modules ./node_modules
 COPY dist ./dist
 
