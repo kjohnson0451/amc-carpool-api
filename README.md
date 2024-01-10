@@ -1,4 +1,8 @@
-# amc-carpool-api
+# AMC Carpool API (amc-carpool-api)
+
+## Description
+
+The AMC Carpool API is an Express/Sequelize application serving as the backend for the AMC Carpool Frontend web app. It handles the core business logic and data operations, providing endpoints necessary to support the frontend's features.
 
 ## Installation
 
