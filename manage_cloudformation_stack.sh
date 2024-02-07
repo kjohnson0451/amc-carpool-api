@@ -5,6 +5,11 @@ if [ -z "$CLOUDFLARE_API_TOKEN" ]; then
     exit 1
 fi
 
+if [ -z "$CLOUDFLARE_ZONE_ID" ]; then
+    echo "Error: CLOUDFLARE_ZONE_ID environment variable is not set."
+    exit 1
+fi
+
 STACK_NAME="amc-carpool-api-stack"
 
 if [ "$1" == "up" ]; then
