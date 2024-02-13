@@ -48,7 +48,7 @@ To stop the running containers, use:
 docker compose down
 ```
 
-This will stop and remove the containers created during the development instance.
+This will stop and remove the containers created for the development instance.
 
 ## Technologies Used
 
